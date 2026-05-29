@@ -1,0 +1,209 @@
+{
+  "groups": [
+    {
+      "id": "c1",
+      "name": "Solo founder · SaaS",
+      "estimated_share_pct": 33.3,
+      "demographics": {
+        "age_range": "25-35",
+        "education_level": "Bachelor's",
+        "occupation": "Founder",
+        "role_seniority": "founder",
+        "company_size": "solo",
+        "industry": "Pre-seed SaaS",
+        "geography": ["US"],
+        "primary_device": "desktop",
+        "language": "en"
+      },
+      "cognitive": {
+        "tech_savviness": 4,
+        "patience_threshold": "medium",
+        "risk_tolerance": "high",
+        "decision_style": "analytical",
+        "learning_style": "tinker",
+        "prior_saas_experience": "moderate"
+      },
+      "economic": {
+        "pricing_sensitivity": 4,
+        "budget_authority": "self_serve",
+        "trial_vs_roi": "trial_first"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 5,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["GDPR"],
+          "data_sensitivity": "medium",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 5,
+          "docs_vs_support": "docs",
+          "self_serve_capability": "high"
+        },
+        "activation": {
+          "motivation_level": "high",
+          "problem_urgency": "high",
+          "aha_shape": "See PMF signal"
+        },
+        "engagement_retention": {
+          "expected_frequency": "daily",
+          "habit_formation_likelihood": "medium",
+          "switching_cost_tolerance": "low",
+          "support_seeking": "self"
+        }
+      },
+      "narrative": {
+        "backstory": "Pre-seed founder iterating on a SaaS prototype.",
+        "goals": ["Find PMF signal"],
+        "frustrations": ["10 min setup feels long"]
+      }
+    },
+    {
+      "id": "c2",
+      "name": "Product-lead PM · Series B",
+      "estimated_share_pct": 33.3,
+      "demographics": {
+        "age_range": "30-45",
+        "education_level": "Master's",
+        "occupation": "Product Manager",
+        "role_seniority": "lead",
+        "company_size": "11-50",
+        "industry": "B2B SaaS",
+        "geography": ["US", "EU"],
+        "primary_device": "desktop",
+        "language": "en"
+      },
+      "cognitive": {
+        "tech_savviness": 5,
+        "patience_threshold": "high",
+        "risk_tolerance": "medium",
+        "decision_style": "analytical",
+        "learning_style": "docs",
+        "prior_saas_experience": "heavy"
+      },
+      "economic": {
+        "pricing_sensitivity": 3,
+        "budget_authority": "team_approval",
+        "trial_vs_roi": "needs_roi_upfront"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 2,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["GDPR", "SOC2"],
+          "data_sensitivity": "high",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 15,
+          "docs_vs_support": "either",
+          "self_serve_capability": "high"
+        },
+        "activation": {
+          "motivation_level": "medium",
+          "problem_urgency": "medium",
+          "aha_shape": "See team-wide value"
+        },
+        "engagement_retention": {
+          "expected_frequency": "weekly",
+          "habit_formation_likelihood": "high",
+          "switching_cost_tolerance": "medium",
+          "support_seeking": "vendor"
+        }
+      },
+      "narrative": {
+        "backstory": "Series B product lead managing a 40-person team.",
+        "goals": ["Reduce churn 12%"],
+        "frustrations": ["Buys tools on proof, not promises"]
+      }
+    },
+    {
+      "id": "c3",
+      "name": "Solo designer-developer",
+      "estimated_share_pct": 33.4,
+      "demographics": {
+        "age_range": "35-50",
+        "education_level": "Bachelor's",
+        "occupation": "Designer-Developer",
+        "role_seniority": "senior",
+        "company_size": "solo",
+        "industry": "Agency spin-out",
+        "geography": ["EU"],
+        "primary_device": "desktop",
+        "language": "en"
+      },
+      "cognitive": {
+        "tech_savviness": 3,
+        "patience_threshold": "low",
+        "risk_tolerance": "medium",
+        "decision_style": "mixed",
+        "learning_style": "video",
+        "prior_saas_experience": "light"
+      },
+      "economic": {
+        "pricing_sensitivity": 5,
+        "budget_authority": "self_serve",
+        "trial_vs_roi": "trial_first"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 8,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["GDPR"],
+          "data_sensitivity": "low",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 8,
+          "docs_vs_support": "docs",
+          "self_serve_capability": "medium"
+        },
+        "activation": {
+          "motivation_level": "medium",
+          "problem_urgency": "high",
+          "aha_shape": "Ship MVP fast"
+        },
+        "engagement_retention": {
+          "expected_frequency": "ad_hoc",
+          "habit_formation_likelihood": "low",
+          "switching_cost_tolerance": "high",
+          "support_seeking": "self"
+        }
+      },
+      "narrative": {
+        "backstory": "Agency spin-out shipping client MVPs solo.",
+        "goals": ["Ship MVP by Q2"],
+        "frustrations": ["No budget for research ops"]
+      }
+    }
+  ],
+  "context_summary": {
+    "app_category": "SaaS productivity",
+    "stated_audience": "Early-stage founders and product teams",
+    "pricing_model": "freemium",
+    "apparent_complexity": "moderate",
+    "geography_signals": ["US", "EU"],
+    "industry_signals": ["SaaS"],
+    "uploaded_research": [],
+    "raw_notes": ""
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "groups": [
+    {
+      "id": "pg_1",
+      "name": "Solo Bootstrappers",
+      "estimated_share_pct": 45,
+      "demographics": {
+        "age_range": "25-35",
+        "education_level": "bachelor",
+        "occupation": "technical founder",
+        "role_seniority": "founder",
+        "company_size": "solo",
+        "industry": "SaaS",
+        "geography": ["US", "EU"],
+        "primary_device": "desktop",
+        "language": "English"
+      },
+      "cognitive": {
+        "tech_savviness": 5,
+        "patience_threshold": "low",
+        "risk_tolerance": "high",
+        "decision_style": "analytical",
+        "learning_style": "tinker",
+        "prior_saas_experience": "heavy"
+      },
+      "economic": {
+        "pricing_sensitivity": 4,
+        "budget_authority": "self_serve",
+        "trial_vs_roi": "trial_first"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 2,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["none"],
+          "data_sensitivity": "low",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 5,
+          "docs_vs_support": "docs",
+          "self_serve_capability": "high"
+        },
+        "activation": {
+          "motivation_level": "high",
+          "problem_urgency": "high",
+          "aha_shape": "Ships their first automation in under 10 minutes"
+        },
+        "engagement_retention": {
+          "expected_frequency": "daily",
+          "habit_formation_likelihood": "high",
+          "switching_cost_tolerance": "medium",
+          "support_seeking": "self"
+        }
+      },
+      "narrative": {
+        "backstory": "Technical founders bootstrapping a SaaS product, often working alone or with a single cofounder. They pick tools based on quick wins and documentation quality.",
+        "goals": ["Ship faster", "Avoid vendor lock-in", "Minimize admin overhead"],
+        "frustrations": ["Sales-led onboarding", "Opaque pricing", "Slow UI"]
+      }
+    },
+    {
+      "id": "pg_2",
+      "name": "Small-Team PMs",
+      "estimated_share_pct": 35,
+      "demographics": {
+        "age_range": "30-45",
+        "education_level": "bachelor",
+        "occupation": "product manager",
+        "role_seniority": "senior",
+        "company_size": "11-50",
+        "industry": "SaaS",
+        "geography": ["US"],
+        "primary_device": "desktop",
+        "language": "English"
+      },
+      "cognitive": {
+        "tech_savviness": 4,
+        "patience_threshold": "medium",
+        "risk_tolerance": "medium",
+        "decision_style": "mixed",
+        "learning_style": "docs",
+        "prior_saas_experience": "heavy"
+      },
+      "economic": {
+        "pricing_sensitivity": 3,
+        "budget_authority": "team_approval",
+        "trial_vs_roi": "mixed"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 3,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["SOC2"],
+          "data_sensitivity": "medium",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 15,
+          "docs_vs_support": "either",
+          "self_serve_capability": "high"
+        },
+        "activation": {
+          "motivation_level": "medium",
+          "problem_urgency": "medium",
+          "aha_shape": "Sees a populated team dashboard with integrations flowing"
+        },
+        "engagement_retention": {
+          "expected_frequency": "daily",
+          "habit_formation_likelihood": "high",
+          "switching_cost_tolerance": "low",
+          "support_seeking": "vendor"
+        }
+      },
+      "narrative": {
+        "backstory": "Product managers running delivery for small product teams. They evaluate tooling on behalf of the team and need buy-in from engineering.",
+        "goals": ["Unblock team", "Better visibility", "Cross-team alignment"],
+        "frustrations": ["Tools that don't integrate", "Poor reporting", "Per-seat pricing"]
+      }
+    },
+    {
+      "id": "pg_3",
+      "name": "Agency Operators",
+      "estimated_share_pct": 20,
+      "demographics": {
+        "age_range": "28-50",
+        "education_level": "bachelor",
+        "occupation": "agency owner or ops lead",
+        "role_seniority": "lead",
+        "company_size": "2-10",
+        "industry": "consulting",
+        "geography": ["EU", "US"],
+        "primary_device": "mixed",
+        "language": "English"
+      },
+      "cognitive": {
+        "tech_savviness": 3,
+        "patience_threshold": "medium",
+        "risk_tolerance": "low",
+        "decision_style": "intuitive",
+        "learning_style": "video",
+        "prior_saas_experience": "moderate"
+      },
+      "economic": {
+        "pricing_sensitivity": 4,
+        "budget_authority": "self_serve",
+        "trial_vs_roi": "needs_roi_upfront"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 2,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["GDPR"],
+          "data_sensitivity": "medium",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 20,
+          "docs_vs_support": "support",
+          "self_serve_capability": "medium"
+        },
+        "activation": {
+          "motivation_level": "medium",
+          "problem_urgency": "medium",
+          "aha_shape": "Client-ready report exported in one click"
+        },
+        "engagement_retention": {
+          "expected_frequency": "weekly",
+          "habit_formation_likelihood": "medium",
+          "switching_cost_tolerance": "medium",
+          "support_seeking": "vendor"
+        }
+      },
+      "narrative": {
+        "backstory": "Agency owners juggling several client projects at once. They want predictability and client-facing polish over power-user features.",
+        "goals": ["Impress clients", "Stable workflows", "Billable clarity"],
+        "frustrations": ["Tool churn", "Unclear invoicing", "Onboarding new clients"]
+      }
+    }
+  ]
+}

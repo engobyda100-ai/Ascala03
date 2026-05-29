@@ -1,0 +1,11 @@
+{
+  "issues": [
+    {
+      "summary": "Two primary CTAs compete for attention on the landing page.",
+      "category": "onboarding",
+      "severity": "medium",
+      "evidence": ["Two CTAs compete for attention — unclear which is primary"],
+      "affected_screens": ["s1"]
+    }
+  ]
+}

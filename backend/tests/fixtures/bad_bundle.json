@@ -1,0 +1,69 @@
+{
+  "groups": [
+    {
+      "id": "pg_1",
+      "name": "Only one group",
+      "estimated_share_pct": 50,
+      "demographics": {
+        "age_range": "25-35",
+        "education_level": "bachelor",
+        "occupation": "founder",
+        "role_seniority": "founder",
+        "company_size": "solo",
+        "industry": "SaaS",
+        "geography": ["US"],
+        "primary_device": "desktop",
+        "language": "English"
+      },
+      "cognitive": {
+        "tech_savviness": 5,
+        "patience_threshold": "low",
+        "risk_tolerance": "high",
+        "decision_style": "analytical",
+        "learning_style": "tinker",
+        "prior_saas_experience": "heavy"
+      },
+      "economic": {
+        "pricing_sensitivity": 4,
+        "budget_authority": "self_serve",
+        "trial_vs_roi": "trial_first"
+      },
+      "testing_postures": {
+        "accessibility": {
+          "assistive_tech": [],
+          "vision": "full",
+          "motor": "full",
+          "hearing": "full",
+          "screen_reader_likelihood": 2,
+          "dexterity_factors": null
+        },
+        "compliance": {
+          "regulations": ["none"],
+          "data_sensitivity": "low",
+          "enterprise_procurement": false
+        },
+        "onboarding": {
+          "time_to_value_tolerance_minutes": 5,
+          "docs_vs_support": "docs",
+          "self_serve_capability": "high"
+        },
+        "activation": {
+          "motivation_level": "high",
+          "problem_urgency": "high",
+          "aha_shape": "fast"
+        },
+        "engagement_retention": {
+          "expected_frequency": "daily",
+          "habit_formation_likelihood": "high",
+          "switching_cost_tolerance": "medium",
+          "support_seeking": "self"
+        }
+      },
+      "narrative": {
+        "backstory": "Lone wolf.",
+        "goals": ["ship"],
+        "frustrations": ["slow"]
+      }
+    }
+  ]
+}

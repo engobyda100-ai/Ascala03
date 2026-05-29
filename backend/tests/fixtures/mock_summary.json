@@ -1,0 +1,17 @@
+{
+  "app_category": "B2B project management",
+  "stated_audience": "Early-stage founders running small cross-functional teams",
+  "pricing_model": "freemium",
+  "apparent_complexity": "moderate",
+  "geography_signals": ["US", "EU"],
+  "industry_signals": ["SaaS", "consulting"],
+  "uploaded_research": [
+    {
+      "name": "sample.pdf",
+      "kind": "pdf",
+      "extracted_excerpt": "Our product helps small teams ship faster…",
+      "note": null
+    }
+  ],
+  "raw_notes": "Landing page emphasizes speed-to-ship and integrations with GitHub/Linear. Tone is casual, founder-friendly. No compliance copy visible."
+}

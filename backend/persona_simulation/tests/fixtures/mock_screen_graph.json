@@ -1,0 +1,34 @@
+{
+  "screens": [
+    {
+      "id": "s1",
+      "source_filename": "s1.png",
+      "inferred_purpose": "Landing page with primary CTA to sign up",
+      "copy": ["Welcome", "Sign up to get started"],
+      "elements": [
+        {"id": "s1.btn_signup", "kind": "button", "label": "Sign up", "bbox_hint": "center"},
+        {"id": "s1.link_login", "kind": "link", "label": "Log in", "bbox_hint": "top-right"}
+      ],
+      "duplicate_of": null
+    },
+    {
+      "id": "s2",
+      "source_filename": "s2.png",
+      "inferred_purpose": "Email/password signup form",
+      "copy": ["Create account", "Email", "Password", "Continue"],
+      "elements": [
+        {"id": "s2.input_email", "kind": "input", "label": "Email", "bbox_hint": "top of form"},
+        {"id": "s2.input_password", "kind": "input", "label": "Password", "bbox_hint": "below email"},
+        {"id": "s2.btn_continue", "kind": "button", "label": "Continue", "bbox_hint": "bottom"}
+      ],
+      "duplicate_of": null
+    }
+  ],
+  "transitions": [
+    {"from_screen": "s1", "via_element_id": "s1.btn_signup", "to_screen": "s2", "confidence": 5}
+  ],
+  "unresolved": [
+    {"from_screen": "s1", "via_element_id": "s1.link_login", "reason": "no login screen in uploaded set"}
+  ],
+  "entry_screen_id": "s1"
+}

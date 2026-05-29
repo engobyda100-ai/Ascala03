@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ascala-server"
+version = "0.1.0"
+description = "Local-dev FastAPI server wrapping persona_synthesis + persona_simulation + persona_report."
+requires-python = ">=3.11"
+dependencies = [
+    "ascala-persona-synthesis",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "python-multipart>=0.0.9",
+    "python-dotenv>=1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["server*"]

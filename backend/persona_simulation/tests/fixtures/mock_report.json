@@ -1,0 +1,38 @@
+{
+  "executive_summary": "Across 3 persona groups, the signup flow converts moderately well. The landing page's dual-CTA pattern creates measurable hesitation. Power users completed quickly, while lower-savviness users got stuck choosing between signup and login.",
+  "cluster_findings": [
+    {
+      "cluster_id": "pg_1",
+      "cluster_name": "Solo Bootstrappers",
+      "summary": "High completion rate and low friction. Users moved through the flow decisively.",
+      "completion_rate": 1.0,
+      "key_friction": []
+    },
+    {
+      "cluster_id": "pg_2",
+      "cluster_name": "Small-Team PMs",
+      "summary": "Completed but hesitated on the landing page.",
+      "completion_rate": 1.0,
+      "key_friction": ["Dual CTA confusion on s1"]
+    },
+    {
+      "cluster_id": "pg_3",
+      "cluster_name": "Agency Operators",
+      "summary": "Completed with the longest time on screen.",
+      "completion_rate": 1.0,
+      "key_friction": ["Dual CTA confusion on s1"]
+    }
+  ],
+  "top_friction_points": ["Landing page CTA ambiguity on s1"],
+  "findings_by_category": {
+    "accessibility": [],
+    "compliance": [],
+    "onboarding": ["Two primary CTAs compete for attention on the landing page."],
+    "activation": [],
+    "engagement_retention": []
+  },
+  "recommended_next_tests": [
+    "Test the landing page with a single primary CTA vs. the current dual-CTA variant.",
+    "Retest with lower-tech-savviness personas after clarifying the login/signup distinction."
+  ]
+}

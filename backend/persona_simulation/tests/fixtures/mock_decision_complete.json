@@ -1,0 +1,10 @@
+{
+  "action": "complete",
+  "target_element_id": null,
+  "reasoning": "Goal reached — I've signed up successfully.",
+  "confidence": 5,
+  "emotional_state": {"confusion": 1, "frustration": 1, "interest": 5, "trust": 5},
+  "estimated_seconds_on_screen": 2,
+  "observed_issues": [],
+  "alternative_actions": []
+}

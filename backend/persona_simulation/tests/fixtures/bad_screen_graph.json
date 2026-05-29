@@ -1,0 +1,15 @@
+{
+  "screens": [
+    {
+      "id": "s1",
+      "source_filename": "s1.png",
+      "inferred_purpose": "Landing",
+      "copy": [],
+      "elements": [],
+      "duplicate_of": null
+    }
+  ],
+  "transitions": [],
+  "unresolved": [],
+  "entry_screen_id": "sDOESNOTEXIST"
+}

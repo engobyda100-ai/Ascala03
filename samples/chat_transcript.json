@@ -1,0 +1,14 @@
+[
+  {
+    "role": "user",
+    "text": "I'm building a B2B SaaS that helps sales teams track and prioritize outreach. Solo founders adopt first; I want to know if sales managers will follow."
+  },
+  {
+    "role": "user",
+    "text": "Riskiest assumption: that solo founders adopt before sales managers do, and that the dashboard is enough to convince a manager during a 15-minute trial."
+  },
+  {
+    "role": "user",
+    "text": "The aha moment is when someone imports their first contacts and sees the dashboard light up with auto-prioritized outreach suggestions."
+  }
+]

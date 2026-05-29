@@ -1,0 +1,2060 @@
+{
+  "screen_graph": {
+    "screens": [
+      {
+        "id": "s1",
+        "source_filename": "s1-landing.png",
+        "inferred_purpose": "Landing page with welcome copy and Sign up CTA",
+        "copy": [
+          "Welcome",
+          "Sign up to get started"
+        ],
+        "elements": [
+          {
+            "id": "s1.btn_signup",
+            "kind": "button",
+            "label": "Sign up",
+            "bbox_hint": "center"
+          },
+          {
+            "id": "s1.link_login",
+            "kind": "link",
+            "label": "Log in",
+            "bbox_hint": "top-right"
+          }
+        ],
+        "duplicate_of": null
+      },
+      {
+        "id": "s2",
+        "source_filename": "s2-signup.png",
+        "inferred_purpose": "Email/password signup form with consent checkbox",
+        "copy": [
+          "Create account",
+          "Email",
+          "Password",
+          "I agree to the terms"
+        ],
+        "elements": [
+          {
+            "id": "s2.input_email",
+            "kind": "input",
+            "label": "Email",
+            "bbox_hint": null
+          },
+          {
+            "id": "s2.input_password",
+            "kind": "input",
+            "label": "Password",
+            "bbox_hint": null
+          },
+          {
+            "id": "s2.check_terms",
+            "kind": "checkbox",
+            "label": "I agree to the terms",
+            "bbox_hint": null
+          },
+          {
+            "id": "s2.btn_continue",
+            "kind": "button",
+            "label": "Continue",
+            "bbox_hint": null
+          }
+        ],
+        "duplicate_of": null
+      },
+      {
+        "id": "s3",
+        "source_filename": "s3-workspace.png",
+        "inferred_purpose": "Workspace setup form asking for team name and invites",
+        "copy": [
+          "Name your workspace",
+          "Invite teammates"
+        ],
+        "elements": [
+          {
+            "id": "s3.input_workspace",
+            "kind": "input",
+            "label": "Workspace name",
+            "bbox_hint": null
+          },
+          {
+            "id": "s3.btn_invite",
+            "kind": "button",
+            "label": "Invite team",
+            "bbox_hint": null
+          },
+          {
+            "id": "s3.link_skip",
+            "kind": "link",
+            "label": "Skip for now",
+            "bbox_hint": null
+          }
+        ],
+        "duplicate_of": null
+      },
+      {
+        "id": "s4",
+        "source_filename": "s4-dashboard.png",
+        "inferred_purpose": "Main dashboard with empty state and template gallery",
+        "copy": [
+          "Your dashboard",
+          "Get started with a template"
+        ],
+        "elements": [
+          {
+            "id": "s4.btn_template",
+            "kind": "button",
+            "label": "Browse templates",
+            "bbox_hint": null
+          },
+          {
+            "id": "s4.btn_settings",
+            "kind": "button",
+            "label": "Settings",
+            "bbox_hint": null
+          },
+          {
+            "id": "s4.btn_save",
+            "kind": "button",
+            "label": "Save",
+            "bbox_hint": null
+          }
+        ],
+        "duplicate_of": null
+      }
+    ],
+    "transitions": [
+      {
+        "from_screen": "s1",
+        "via_element_id": "s1.btn_signup",
+        "to_screen": "s2",
+        "confidence": 5
+      },
+      {
+        "from_screen": "s2",
+        "via_element_id": "s2.btn_continue",
+        "to_screen": "s3",
+        "confidence": 5
+      },
+      {
+        "from_screen": "s3",
+        "via_element_id": "s3.btn_invite",
+        "to_screen": "s4",
+        "confidence": 5
+      },
+      {
+        "from_screen": "s3",
+        "via_element_id": "s3.link_skip",
+        "to_screen": "s4",
+        "confidence": 4
+      }
+    ],
+    "unresolved": [
+      {
+        "from_screen": "s1",
+        "via_element_id": "s1.link_login",
+        "reason": "no login screen in uploaded set"
+      }
+    ],
+    "entry_screen_id": "s1"
+  },
+  "paths": [
+    {
+      "agent": {
+        "agent_id": "a_pg_1_001",
+        "parent_agent_id": null,
+        "cluster_id": "pg_1",
+        "cluster_name": "Solo Bootstrappers",
+        "age": 28,
+        "tech_savviness": 5,
+        "patience_threshold": "low",
+        "pricing_sensitivity": 4,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_1",
+          "name": "Solo Bootstrappers",
+          "estimated_share_pct": 45.0,
+          "demographics": {
+            "age_range": "25-35",
+            "education_level": "bachelor",
+            "occupation": "technical founder",
+            "role_seniority": "founder",
+            "company_size": "solo",
+            "industry": "SaaS",
+            "geography": [
+              "US",
+              "EU"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 5,
+            "patience_threshold": "low",
+            "risk_tolerance": "high",
+            "decision_style": "analytical",
+            "learning_style": "tinker",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "trial_first"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 2,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "none"
+              ],
+              "data_sensitivity": "low",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 5,
+              "docs_vs_support": "docs",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "high",
+              "problem_urgency": "high",
+              "aha_shape": "Ships their first automation in under 10 minutes"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "self"
+            }
+          },
+          "narrative": {
+            "backstory": "Technical founders bootstrapping a SaaS product, often working alone or with a single cofounder. They pick tools based on quick wins and documentation quality.",
+            "goals": [
+              "Ship faster",
+              "Avoid vendor lock-in",
+              "Minimize admin overhead"
+            ],
+            "frustrations": [
+              "Sales-led onboarding",
+              "Opaque pricing",
+              "Slow UI"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Solo Bootstrappers agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "I'll definitely sign up \u2014 bookmarking this for later.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 4,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Quick form, no problems.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 5,
+              "trust": 5
+            },
+            "estimated_seconds_on_screen": 6,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s3.link_skip",
+            "reasoning": "I'll skip invites for now.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 5,
+              "trust": 5
+            },
+            "estimated_seconds_on_screen": 5,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        },
+        {
+          "order": 4,
+          "screen_id": "s4",
+          "decision": {
+            "action": "complete",
+            "target_element_id": null,
+            "reasoning": "Reached the dashboard \u2014 looking forward to using this.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 5,
+              "trust": 5
+            },
+            "estimated_seconds_on_screen": 3,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 32
+        }
+      ],
+      "terminal_state": "complete",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s4"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 18,
+      "tokens_used": 4000
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_1_002",
+        "parent_agent_id": null,
+        "cluster_id": "pg_1",
+        "cluster_name": "Solo Bootstrappers",
+        "age": 30,
+        "tech_savviness": 5,
+        "patience_threshold": "low",
+        "pricing_sensitivity": 4,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_1",
+          "name": "Solo Bootstrappers",
+          "estimated_share_pct": 45.0,
+          "demographics": {
+            "age_range": "25-35",
+            "education_level": "bachelor",
+            "occupation": "technical founder",
+            "role_seniority": "founder",
+            "company_size": "solo",
+            "industry": "SaaS",
+            "geography": [
+              "US",
+              "EU"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 5,
+            "patience_threshold": "low",
+            "risk_tolerance": "high",
+            "decision_style": "analytical",
+            "learning_style": "tinker",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "trial_first"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 2,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "none"
+              ],
+              "data_sensitivity": "low",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 5,
+              "docs_vs_support": "docs",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "high",
+              "problem_urgency": "high",
+              "aha_shape": "Ships their first automation in under 10 minutes"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "self"
+            }
+          },
+          "narrative": {
+            "backstory": "Technical founders bootstrapping a SaaS product, often working alone or with a single cofounder. They pick tools based on quick wins and documentation quality.",
+            "goals": [
+              "Ship faster",
+              "Avoid vendor lock-in",
+              "Minimize admin overhead"
+            ],
+            "frustrations": [
+              "Sales-led onboarding",
+              "Opaque pricing",
+              "Slow UI"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Solo Bootstrappers agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Going for it.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 5,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Signing up.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 8,
+            "observed_issues": [
+              "Terms checkbox is small"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s3.link_skip",
+            "reasoning": "Skip team invite.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 4,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        },
+        {
+          "order": 4,
+          "screen_id": "s4",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s4.btn_save",
+            "reasoning": "Saving my preferences \u2014 adding to my regular tools.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 5,
+              "trust": 5
+            },
+            "estimated_seconds_on_screen": 3,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 32
+        }
+      ],
+      "terminal_state": "complete",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 20,
+      "tokens_used": 4000
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_1_003",
+        "parent_agent_id": null,
+        "cluster_id": "pg_1",
+        "cluster_name": "Solo Bootstrappers",
+        "age": 33,
+        "tech_savviness": 4,
+        "patience_threshold": "low",
+        "pricing_sensitivity": 4,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_1",
+          "name": "Solo Bootstrappers",
+          "estimated_share_pct": 45.0,
+          "demographics": {
+            "age_range": "25-35",
+            "education_level": "bachelor",
+            "occupation": "technical founder",
+            "role_seniority": "founder",
+            "company_size": "solo",
+            "industry": "SaaS",
+            "geography": [
+              "US",
+              "EU"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 5,
+            "patience_threshold": "low",
+            "risk_tolerance": "high",
+            "decision_style": "analytical",
+            "learning_style": "tinker",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "trial_first"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 2,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "none"
+              ],
+              "data_sensitivity": "low",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 5,
+              "docs_vs_support": "docs",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "high",
+              "problem_urgency": "high",
+              "aha_shape": "Ships their first automation in under 10 minutes"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "self"
+            }
+          },
+          "narrative": {
+            "backstory": "Technical founders bootstrapping a SaaS product, often working alone or with a single cofounder. They pick tools based on quick wins and documentation quality.",
+            "goals": [
+              "Ship faster",
+              "Avoid vendor lock-in",
+              "Minimize admin overhead"
+            ],
+            "frustrations": [
+              "Sales-led onboarding",
+              "Opaque pricing",
+              "Slow UI"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Solo Bootstrappers agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Sign up clearly.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 4,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Continuing.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 5,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s3.btn_invite",
+            "reasoning": "Will invite my cofounder.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 1,
+              "interest": 3,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 9,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        },
+        {
+          "order": 4,
+          "screen_id": "s4",
+          "decision": {
+            "action": "complete",
+            "target_element_id": null,
+            "reasoning": "Done. I'll come back tomorrow to set up automations.",
+            "confidence": 5,
+            "emotional_state": {
+              "confusion": 1,
+              "frustration": 1,
+              "interest": 5,
+              "trust": 5
+            },
+            "estimated_seconds_on_screen": 4,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 32
+        }
+      ],
+      "terminal_state": "complete",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 22,
+      "tokens_used": 4000
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_2_001",
+        "parent_agent_id": null,
+        "cluster_id": "pg_2",
+        "cluster_name": "Small-Team PMs",
+        "age": 36,
+        "tech_savviness": 4,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 3,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_2",
+          "name": "Small-Team PMs",
+          "estimated_share_pct": 35.0,
+          "demographics": {
+            "age_range": "30-45",
+            "education_level": "bachelor",
+            "occupation": "product manager",
+            "role_seniority": "senior",
+            "company_size": "11-50",
+            "industry": "SaaS",
+            "geography": [
+              "US"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 4,
+            "patience_threshold": "medium",
+            "risk_tolerance": "medium",
+            "decision_style": "mixed",
+            "learning_style": "docs",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 3,
+            "budget_authority": "team_approval",
+            "trial_vs_roi": "mixed"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 3,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "SOC2"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 15,
+              "docs_vs_support": "either",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Sees a populated team dashboard with integrations flowing"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "low",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Product managers running delivery for small product teams. They evaluate tooling on behalf of the team and need buy-in from engineering.",
+            "goals": [
+              "Unblock team",
+              "Better visibility",
+              "Cross-team alignment"
+            ],
+            "frustrations": [
+              "Tools that don't integrate",
+              "Poor reporting",
+              "Per-seat pricing"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Small-Team PMs agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Sign up vs Log in \u2014 picking signup.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 2,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 12,
+            "observed_issues": [
+              "Two CTAs compete for attention"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "I want to know what data they collect.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 3,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 15,
+            "observed_issues": [
+              "No clear privacy policy link before consent \u2014 compliance concern"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s3.btn_invite",
+            "reasoning": "Inviting team.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 8,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        },
+        {
+          "order": 4,
+          "screen_id": "s4",
+          "decision": {
+            "action": "complete",
+            "target_element_id": null,
+            "reasoning": "Reached dashboard. Maybe will come back later.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 5,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 32
+        }
+      ],
+      "terminal_state": "complete",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 40,
+      "tokens_used": 4000
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_2_002",
+        "parent_agent_id": null,
+        "cluster_id": "pg_2",
+        "cluster_name": "Small-Team PMs",
+        "age": 40,
+        "tech_savviness": 4,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 3,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_2",
+          "name": "Small-Team PMs",
+          "estimated_share_pct": 35.0,
+          "demographics": {
+            "age_range": "30-45",
+            "education_level": "bachelor",
+            "occupation": "product manager",
+            "role_seniority": "senior",
+            "company_size": "11-50",
+            "industry": "SaaS",
+            "geography": [
+              "US"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 4,
+            "patience_threshold": "medium",
+            "risk_tolerance": "medium",
+            "decision_style": "mixed",
+            "learning_style": "docs",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 3,
+            "budget_authority": "team_approval",
+            "trial_vs_roi": "mixed"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 3,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "SOC2"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 15,
+              "docs_vs_support": "either",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Sees a populated team dashboard with integrations flowing"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "low",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Product managers running delivery for small product teams. They evaluate tooling on behalf of the team and need buy-in from engineering.",
+            "goals": [
+              "Unblock team",
+              "Better visibility",
+              "Cross-team alignment"
+            ],
+            "frustrations": [
+              "Tools that don't integrate",
+              "Poor reporting",
+              "Per-seat pricing"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Small-Team PMs agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Two CTAs and unclear pitch.",
+            "confidence": 2,
+            "emotional_state": {
+              "confusion": 4,
+              "frustration": 3,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 25,
+            "observed_issues": [
+              "Two CTAs compete for attention",
+              "Hero copy doesn't say what the product does"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Compliance is unclear \u2014 a GDPR concern for me.",
+            "confidence": 2,
+            "emotional_state": {
+              "confusion": 4,
+              "frustration": 4,
+              "interest": 2,
+              "trust": 2
+            },
+            "estimated_seconds_on_screen": 30,
+            "observed_issues": [
+              "Consent flow is confusing",
+              "GDPR concern: no explicit consent toggle"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "give_up",
+            "target_element_id": null,
+            "reasoning": "I haven't seen the product yet \u2014 done with this for now.",
+            "confidence": 2,
+            "emotional_state": {
+              "confusion": 4,
+              "frustration": 5,
+              "interest": 1,
+              "trust": 2
+            },
+            "estimated_seconds_on_screen": 20,
+            "observed_issues": [
+              "Workspace setup feels premature"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        }
+      ],
+      "terminal_state": "give_up",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 75,
+      "tokens_used": 3500
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_2_003",
+        "parent_agent_id": null,
+        "cluster_id": "pg_2",
+        "cluster_name": "Small-Team PMs",
+        "age": 38,
+        "tech_savviness": 4,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 3,
+        "primary_device": "mixed",
+        "group": {
+          "id": "pg_2",
+          "name": "Small-Team PMs",
+          "estimated_share_pct": 35.0,
+          "demographics": {
+            "age_range": "30-45",
+            "education_level": "bachelor",
+            "occupation": "product manager",
+            "role_seniority": "senior",
+            "company_size": "11-50",
+            "industry": "SaaS",
+            "geography": [
+              "US"
+            ],
+            "primary_device": "desktop",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 4,
+            "patience_threshold": "medium",
+            "risk_tolerance": "medium",
+            "decision_style": "mixed",
+            "learning_style": "docs",
+            "prior_saas_experience": "heavy"
+          },
+          "economic": {
+            "pricing_sensitivity": 3,
+            "budget_authority": "team_approval",
+            "trial_vs_roi": "mixed"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 3,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "SOC2"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 15,
+              "docs_vs_support": "either",
+              "self_serve_capability": "high"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Sees a populated team dashboard with integrations flowing"
+            },
+            "engagement_retention": {
+              "expected_frequency": "daily",
+              "habit_formation_likelihood": "high",
+              "switching_cost_tolerance": "low",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Product managers running delivery for small product teams. They evaluate tooling on behalf of the team and need buy-in from engineering.",
+            "goals": [
+              "Unblock team",
+              "Better visibility",
+              "Cross-team alignment"
+            ],
+            "frustrations": [
+              "Tools that don't integrate",
+              "Poor reporting",
+              "Per-seat pricing"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Small-Team PMs agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.link_login",
+            "reasoning": "I'll click Log in \u2014 wait, I don't have an account yet.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 2,
+              "interest": 2,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 14,
+            "observed_issues": [
+              "Log in button leads nowhere"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        }
+      ],
+      "terminal_state": "dead_end",
+      "screens_visited": [
+        "s1",
+        "s1"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 14,
+      "tokens_used": 2000
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_3_001",
+        "parent_agent_id": null,
+        "cluster_id": "pg_3",
+        "cluster_name": "Agency Operators",
+        "age": 42,
+        "tech_savviness": 3,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 4,
+        "primary_device": "desktop",
+        "group": {
+          "id": "pg_3",
+          "name": "Agency Operators",
+          "estimated_share_pct": 20.0,
+          "demographics": {
+            "age_range": "28-50",
+            "education_level": "bachelor",
+            "occupation": "agency owner or ops lead",
+            "role_seniority": "lead",
+            "company_size": "2-10",
+            "industry": "consulting",
+            "geography": [
+              "EU",
+              "US"
+            ],
+            "primary_device": "mixed",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 3,
+            "patience_threshold": "medium",
+            "risk_tolerance": "low",
+            "decision_style": "intuitive",
+            "learning_style": "video",
+            "prior_saas_experience": "moderate"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "needs_roi_upfront"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "low",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 60,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "GDPR"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 20,
+              "docs_vs_support": "support",
+              "self_serve_capability": "medium"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Client-ready report exported in one click"
+            },
+            "engagement_retention": {
+              "expected_frequency": "weekly",
+              "habit_formation_likelihood": "medium",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Agency owners juggling several client projects at once. They want predictability and client-facing polish over power-user features.",
+            "goals": [
+              "Impress clients",
+              "Stable workflows",
+              "Billable clarity"
+            ],
+            "frustrations": [
+              "Tool churn",
+              "Unclear invoicing",
+              "Onboarding new clients"
+            ]
+          }
+        },
+        "personalized_backstory": "Agency operator with low vision",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Hard to tell where focus is \u2014 accessibility issue.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 3,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 16,
+            "observed_issues": [
+              "Focus ring is invisible on the cream background",
+              "Sign up button has poor contrast"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Cannot read the terms checkbox label.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 4,
+              "interest": 2,
+              "trust": 2
+            },
+            "estimated_seconds_on_screen": 22,
+            "observed_issues": [
+              "Terms checkbox label is too small for me to read"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "give_up",
+            "target_element_id": null,
+            "reasoning": "Form is impossible to navigate. Probably not coming back.",
+            "confidence": 2,
+            "emotional_state": {
+              "confusion": 4,
+              "frustration": 5,
+              "interest": 1,
+              "trust": 1
+            },
+            "estimated_seconds_on_screen": 18,
+            "observed_issues": [
+              "Workspace input has no visible label, only a placeholder"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        }
+      ],
+      "terminal_state": "give_up",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 56,
+      "tokens_used": 3500
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_3_002",
+        "parent_agent_id": null,
+        "cluster_id": "pg_3",
+        "cluster_name": "Agency Operators",
+        "age": 41,
+        "tech_savviness": 3,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 4,
+        "primary_device": "mixed",
+        "group": {
+          "id": "pg_3",
+          "name": "Agency Operators",
+          "estimated_share_pct": 20.0,
+          "demographics": {
+            "age_range": "28-50",
+            "education_level": "bachelor",
+            "occupation": "agency owner or ops lead",
+            "role_seniority": "lead",
+            "company_size": "2-10",
+            "industry": "consulting",
+            "geography": [
+              "EU",
+              "US"
+            ],
+            "primary_device": "mixed",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 3,
+            "patience_threshold": "medium",
+            "risk_tolerance": "low",
+            "decision_style": "intuitive",
+            "learning_style": "video",
+            "prior_saas_experience": "moderate"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "needs_roi_upfront"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 2,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "GDPR"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 20,
+              "docs_vs_support": "support",
+              "self_serve_capability": "medium"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Client-ready report exported in one click"
+            },
+            "engagement_retention": {
+              "expected_frequency": "weekly",
+              "habit_formation_likelihood": "medium",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Agency owners juggling several client projects at once. They want predictability and client-facing polish over power-user features.",
+            "goals": [
+              "Impress clients",
+              "Stable workflows",
+              "Billable clarity"
+            ],
+            "frustrations": [
+              "Tool churn",
+              "Unclear invoicing",
+              "Onboarding new clients"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Agency Operators agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Going to try this for a client project.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 12,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Need to know about GDPR posture before I sign client up.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 3,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 14,
+            "observed_issues": [
+              "Privacy policy link is buried"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s3.link_skip",
+            "reasoning": "Skipping team for now.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 10,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        },
+        {
+          "order": 4,
+          "screen_id": "s4",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s4.btn_template",
+            "reasoning": "Found the templates by accident \u2014 I'm migrating from another tool.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 18,
+            "observed_issues": [
+              "Template gallery is hidden behind a small button"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 32
+        },
+        {
+          "order": 5,
+          "screen_id": "s4",
+          "decision": {
+            "action": "complete",
+            "target_element_id": null,
+            "reasoning": "Got far enough.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 4,
+              "trust": 4
+            },
+            "estimated_seconds_on_screen": 8,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 40
+        }
+      ],
+      "terminal_state": "complete",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s4",
+        "s4"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 62,
+      "tokens_used": 4500
+    },
+    {
+      "agent": {
+        "agent_id": "a_pg_3_003",
+        "parent_agent_id": null,
+        "cluster_id": "pg_3",
+        "cluster_name": "Agency Operators",
+        "age": 45,
+        "tech_savviness": 3,
+        "patience_threshold": "medium",
+        "pricing_sensitivity": 4,
+        "primary_device": "mixed",
+        "group": {
+          "id": "pg_3",
+          "name": "Agency Operators",
+          "estimated_share_pct": 20.0,
+          "demographics": {
+            "age_range": "28-50",
+            "education_level": "bachelor",
+            "occupation": "agency owner or ops lead",
+            "role_seniority": "lead",
+            "company_size": "2-10",
+            "industry": "consulting",
+            "geography": [
+              "EU",
+              "US"
+            ],
+            "primary_device": "mixed",
+            "language": "English"
+          },
+          "cognitive": {
+            "tech_savviness": 3,
+            "patience_threshold": "medium",
+            "risk_tolerance": "low",
+            "decision_style": "intuitive",
+            "learning_style": "video",
+            "prior_saas_experience": "moderate"
+          },
+          "economic": {
+            "pricing_sensitivity": 4,
+            "budget_authority": "self_serve",
+            "trial_vs_roi": "needs_roi_upfront"
+          },
+          "testing_postures": {
+            "accessibility": {
+              "assistive_tech": [],
+              "vision": "full",
+              "motor": "full",
+              "hearing": "full",
+              "screen_reader_likelihood": 2,
+              "dexterity_factors": null
+            },
+            "compliance": {
+              "regulations": [
+                "GDPR"
+              ],
+              "data_sensitivity": "medium",
+              "enterprise_procurement": false
+            },
+            "onboarding": {
+              "time_to_value_tolerance_minutes": 20,
+              "docs_vs_support": "support",
+              "self_serve_capability": "medium"
+            },
+            "activation": {
+              "motivation_level": "medium",
+              "problem_urgency": "medium",
+              "aha_shape": "Client-ready report exported in one click"
+            },
+            "engagement_retention": {
+              "expected_frequency": "weekly",
+              "habit_formation_likelihood": "medium",
+              "switching_cost_tolerance": "medium",
+              "support_seeking": "vendor"
+            }
+          },
+          "narrative": {
+            "backstory": "Agency owners juggling several client projects at once. They want predictability and client-facing polish over power-user features.",
+            "goals": [
+              "Impress clients",
+              "Stable workflows",
+              "Billable clarity"
+            ],
+            "frustrations": [
+              "Tool churn",
+              "Unclear invoicing",
+              "Onboarding new clients"
+            ]
+          }
+        },
+        "personalized_backstory": "Representative Agency Operators agent.",
+        "rng_seed": 42
+      },
+      "steps": [
+        {
+          "order": 1,
+          "screen_id": "s1",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s1.btn_signup",
+            "reasoning": "Two buttons confusing me.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 3,
+              "interest": 2,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 18,
+            "observed_issues": [
+              "Two CTAs compete for attention"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 8
+        },
+        {
+          "order": 2,
+          "screen_id": "s2",
+          "decision": {
+            "action": "click_element",
+            "target_element_id": "s2.btn_continue",
+            "reasoning": "Filling form.",
+            "confidence": 4,
+            "emotional_state": {
+              "confusion": 2,
+              "frustration": 2,
+              "interest": 3,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 12,
+            "observed_issues": [],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 16
+        },
+        {
+          "order": 3,
+          "screen_id": "s3",
+          "decision": {
+            "action": "scroll",
+            "target_element_id": null,
+            "reasoning": "Hitting limit \u2014 switching tools maybe.",
+            "confidence": 3,
+            "emotional_state": {
+              "confusion": 3,
+              "frustration": 3,
+              "interest": 2,
+              "trust": 3
+            },
+            "estimated_seconds_on_screen": 8,
+            "observed_issues": [
+              "Workspace setup felt premature"
+            ],
+            "alternative_actions": []
+          },
+          "was_fork_point": false,
+          "elapsed_seconds_total": 24
+        }
+      ],
+      "terminal_state": "max_steps_reached",
+      "screens_visited": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "fork_points": [],
+      "cumulative_seconds": 38,
+      "tokens_used": 3000
+    }
+  ],
+  "report": {
+    "executive_summary": "9 agents across 3 clusters walked through a 4-screen signup flow. Completion was strong for technical founders, mixed for PMs, and notably worse for accessibility-needs users. Compliance concerns surfaced on the consent screen.",
+    "cluster_findings": [
+      {
+        "cluster_id": "pg_1",
+        "cluster_name": "Solo Bootstrappers",
+        "summary": "All 3 completed.",
+        "completion_rate": 1.0,
+        "key_friction": []
+      },
+      {
+        "cluster_id": "pg_2",
+        "cluster_name": "Small-Team PMs",
+        "summary": "One completion, one give-up, one dead-end.",
+        "completion_rate": 0.33,
+        "key_friction": [
+          "compliance unclear",
+          "dual CTAs"
+        ]
+      },
+      {
+        "cluster_id": "pg_3",
+        "cluster_name": "Agency Operators",
+        "summary": "One completion, one accessibility-driven give-up, one max-steps.",
+        "completion_rate": 0.33,
+        "key_friction": [
+          "accessibility",
+          "template gallery hidden"
+        ]
+      }
+    ],
+    "top_friction_points": [
+      "s2 consent flow",
+      "s1 dual CTAs",
+      "s2 contrast"
+    ],
+    "findings_by_category": {
+      "accessibility": [
+        "Focus ring invisible",
+        "Contrast issues"
+      ],
+      "compliance": [
+        "Privacy policy buried",
+        "GDPR consent unclear"
+      ],
+      "onboarding": [
+        "Two CTAs compete"
+      ],
+      "activation": [
+        "Workspace setup premature"
+      ],
+      "engagement_retention": [
+        "Template gallery hidden"
+      ]
+    },
+    "recommended_next_tests": [
+      "Test single-CTA landing variant",
+      "Test accessibility audit"
+    ],
+    "metrics": {
+      "total_agents": 9,
+      "completion_rate_overall": 0.5556,
+      "completion_rate_by_cluster": {
+        "pg_1": 1.0,
+        "pg_2": 0.3333,
+        "pg_3": 0.3333
+      },
+      "drop_off_curve": [
+        {
+          "step_index": 0,
+          "remaining_pct": 100.0
+        },
+        {
+          "step_index": 1,
+          "remaining_pct": 88.89
+        },
+        {
+          "step_index": 2,
+          "remaining_pct": 77.78
+        },
+        {
+          "step_index": 3,
+          "remaining_pct": 66.67
+        }
+      ],
+      "tokens_used_total": 32500,
+      "top_friction_screens": [
+        "s2",
+        "s1",
+        "s3",
+        "s4"
+      ],
+      "per_screen": [
+        {
+          "screen_id": "s1",
+          "arrivals": 9,
+          "departures": {
+            "continued": 8
+          },
+          "avg_emotional_state_on_arrival": {
+            "confusion": 2,
+            "frustration": 2,
+            "interest": 3,
+            "trust": 3
+          },
+          "avg_seconds": 12.222222222222221,
+          "action_distribution": {
+            "click_element": 9,
+            "scroll": 0,
+            "go_back": 0,
+            "give_up": 0,
+            "complete": 0
+          },
+          "issues": [
+            "Two CTAs compete for attention",
+            "Hero copy doesn't say what the product does",
+            "Log in button leads nowhere",
+            "Focus ring is invisible on the cream background",
+            "Sign up button has poor contrast"
+          ]
+        },
+        {
+          "screen_id": "s2",
+          "arrivals": 8,
+          "departures": {
+            "continued": 7
+          },
+          "avg_emotional_state_on_arrival": {
+            "confusion": 2,
+            "frustration": 2,
+            "interest": 3,
+            "trust": 3
+          },
+          "avg_seconds": 14.0,
+          "action_distribution": {
+            "click_element": 8,
+            "scroll": 0,
+            "go_back": 0,
+            "give_up": 0,
+            "complete": 0
+          },
+          "issues": [
+            "Terms checkbox is small",
+            "No clear privacy policy link before consent \u2014 compliance concern",
+            "Consent flow is confusing",
+            "GDPR concern: no explicit consent toggle",
+            "Terms checkbox label is too small for me to read",
+            "Privacy policy link is buried"
+          ]
+        },
+        {
+          "screen_id": "s3",
+          "arrivals": 8,
+          "departures": {
+            "continued": 7
+          },
+          "avg_emotional_state_on_arrival": {
+            "confusion": 2,
+            "frustration": 2,
+            "interest": 3,
+            "trust": 3
+          },
+          "avg_seconds": 10.25,
+          "action_distribution": {
+            "click_element": 5,
+            "scroll": 1,
+            "go_back": 0,
+            "give_up": 2,
+            "complete": 0
+          },
+          "issues": [
+            "Workspace setup feels premature",
+            "Workspace input has no visible label, only a placeholder",
+            "Workspace setup felt premature"
+          ]
+        },
+        {
+          "screen_id": "s4",
+          "arrivals": 6,
+          "departures": {
+            "continued": 5
+          },
+          "avg_emotional_state_on_arrival": {
+            "confusion": 2,
+            "frustration": 2,
+            "interest": 4,
+            "trust": 4
+          },
+          "avg_seconds": 6.833333333333333,
+          "action_distribution": {
+            "click_element": 2,
+            "scroll": 0,
+            "go_back": 0,
+            "give_up": 0,
+            "complete": 4
+          },
+          "issues": [
+            "Template gallery is hidden behind a small button"
+          ]
+        }
+      ]
+    },
+    "categorized_issues": {
+      "issues": [
+        {
+          "summary": "Two primary CTAs on the landing page compete for attention.",
+          "category": "onboarding",
+          "severity": "high",
+          "evidence": [
+            "Two CTAs compete for attention",
+            "Hero copy doesn't say what the product does"
+          ],
+          "affected_screens": [
+            "s1"
+          ]
+        },
+        {
+          "summary": "Consent flow lacks an explicit privacy policy link before data collection.",
+          "category": "compliance",
+          "severity": "high",
+          "evidence": [
+            "No clear privacy policy link before consent \u2014 compliance concern",
+            "Consent flow is confusing",
+            "GDPR concern: no explicit consent toggle",
+            "Privacy policy link is buried"
+          ],
+          "affected_screens": [
+            "s2"
+          ]
+        },
+        {
+          "summary": "Focus ring and input contrast fail accessibility on cream backgrounds.",
+          "category": "accessibility",
+          "severity": "critical",
+          "evidence": [
+            "Focus ring is invisible on the cream background",
+            "Sign up button has poor contrast",
+            "Terms checkbox label is too small for me to read",
+            "Workspace input has no visible label, only a placeholder"
+          ],
+          "affected_screens": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "summary": "Workspace setup is required before the user has seen any value.",
+          "category": "activation",
+          "severity": "medium",
+          "evidence": [
+            "Workspace setup feels premature",
+            "Workspace setup felt premature"
+          ],
+          "affected_screens": [
+            "s3"
+          ]
+        },
+        {
+          "summary": "Template gallery is buried behind a small dashboard card.",
+          "category": "engagement_retention",
+          "severity": "medium",
+          "evidence": [
+            "Template gallery is hidden behind a small button"
+          ],
+          "affected_screens": [
+            "s4"
+          ]
+        }
+      ]
+    }
+  },
+  "budget_stopped": false,
+  "budgets_engaged": []
+}

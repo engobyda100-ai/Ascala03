@@ -1,0 +1,6 @@
+{
+  "title": "Surface privacy policy link before the consent checkbox",
+  "summary": "Two of three Small-Team PMs flagged the missing privacy link before the consent step. One agent gave up entirely citing GDPR concerns. The signup form needs an inline link before users can tick the consent box.",
+  "fix_prompt": "On the s2 screen (s2-signup.png), the consent flow lacks an explicit privacy policy link before users tick the consent checkbox.\n\nEvidence: 2/3 agents in the Small-Team PMs cluster flagged this as a compliance concern; one agent gave up at this screen citing GDPR exposure.\n\nChange required: Add an inline \"View privacy policy\" link directly above the consent checkbox, opening the policy in a side panel.\n\nVisual/interaction direction: The link should appear in 13px terracotta with an external-link icon; the side panel slides in from the right and dismisses on Escape or click outside.",
+  "estimated_impact": "Would address the GDPR-related drop-off (~17% of agents in the affected cluster) and reduce compliance friction overall."
+}

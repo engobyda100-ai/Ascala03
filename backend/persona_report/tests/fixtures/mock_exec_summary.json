@@ -1,0 +1,3 @@
+{
+  "executive_summary": "The signup flow worked for technical founders but stumbled for accessibility-needs users and PMs evaluating compliance posture. Consent design is the single largest friction point — surface a privacy policy link before consent and the GDPR-related give-up should resolve. Accessibility evidence is critical (low-contrast focus rings, illegible label sizes); fixing that should be a near-term blocker. Onboarding completion is at 56% overall, dragged down by the same two screens. Retention signals are predictive only and split — half of agents expressed return intent, the other half didn't engage with habit markers. With low confidence on retention specifically, treat that section as preliminary."
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Improve the signup screen",
+  "summary": "Some users had problems with the signup screen.",
+  "fix_prompt": "The signup screen is confusing. Users get lost. We should make it clearer and add some better copy.",
+  "estimated_impact": "Should help."
+}
