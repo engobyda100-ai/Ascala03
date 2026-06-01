@@ -64,8 +64,9 @@ function TopBar({ onToggleTheme, dark, tokens,
       showPills && React.createElement('div', { className: 'topbar-pills' },
         React.createElement('button', {
           className: 'topbar-pill',
-          onClick: onChangePrototype,
-          title: 'Change prototype'
+          onClick: onChangePrototype || undefined,
+          style: !onChangePrototype ? { cursor: 'default', pointerEvents: 'none' } : undefined,
+          title: onChangePrototype ? 'Change prototype' : undefined,
         },
           React.createElement(IconLink, { width: 11, height: 11 }),
           protoLabel || 'No prototype'

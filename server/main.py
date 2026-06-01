@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
@@ -251,3 +252,79 @@ def report_get(run_id: str) -> dict:
     if state is None or state.kind != "report":
         raise HTTPException(status_code=404, detail="run not found")
     return _run_to_response(state)
+
+
+# ──────────────────────────── chat (post-intake conversation) ────────────────────────────
+#
+# Synchronous, non-job endpoint: the intake summary is supplied by the client in
+# `system`; `messages` is the post-intake conversational history. No registry /
+# polling needed — this is a single request/response turn.
+
+CHAT_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
+CHAT_MAX_TOKENS = 1024
+DEFAULT_CHAT_SYSTEM = (
+    "You are Ascala Intelligence, a product-validation and customer-discovery coach."
+)
+
+
+class ChatMessageBody(BaseModel):
+    role: str
+    content: str
+
+
+class ChatStartBody(BaseModel):
+    system: str = ""
+    messages: list[ChatMessageBody] = []
+    mock: bool = False
+
+
+def _mock_chat_reply(system: str, last_user: str) -> str:
+    """A canned reply that visibly consumes the intake context, so the demo
+    exercises the full wiring even with mock mode on (the default)."""
+    ctx = ""
+    if "User Intake:" in system:
+        ctx = system.split("User Intake:", 1)[1]
+        ctx = ctx.split("persistent context", 1)[0]
+        ctx = " ".join(ctx.split())[:240]
+    return (
+        f"(mock) Good question — \"{last_user}\". "
+        f"Drawing on your intake context — {ctx or 'no answers were captured'} — "
+        "my practical first take: lead with the segment you ranked highest and the "
+        "test you prioritized, and frame messaging around the launch fear you weighted "
+        "most heavily. Flip off Mock mode in the Studio panel for a full model-written answer."
+    )
+
+
+@app.post("/api/chat")
+def chat_start(body: ChatStartBody) -> dict:
+    msgs = [
+        {"role": m.role, "content": m.content}
+        for m in body.messages
+        if m.content and m.content.strip()
+    ]
+    if not msgs:
+        raise HTTPException(status_code=400, detail="messages required")
+    if msgs[-1]["role"] != "user":
+        raise HTTPException(status_code=400, detail="last message must be from the user")
+
+    if body.mock:
+        return {"reply": _mock_chat_reply(body.system, msgs[-1]["content"])}
+
+    try:
+        import anthropic
+
+        client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        resp = client.messages.create(
+            model=CHAT_MODEL,
+            max_tokens=CHAT_MAX_TOKENS,
+            system=body.system.strip() or DEFAULT_CHAT_SYSTEM,
+            messages=msgs,
+        )
+        text = "".join(
+            getattr(b, "text", "") for b in resp.content if getattr(b, "type", "") == "text"
+        ).strip()
+        return {"reply": text or "(the model returned an empty response)"}
+    except HTTPException:
+        raise
+    except Exception as e:  # noqa: BLE001 — surface any provider/SDK failure to the client
+        raise HTTPException(status_code=502, detail=f"chat failed: {e}")

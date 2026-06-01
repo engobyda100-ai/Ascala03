@@ -65,7 +65,45 @@ const Avatar = ({ seed }) => {
   );
 };
 
-function PersonaTab({ synthesis, startError, onStart, onContinue, onReset }) {
+function DiscoveryGrounding({ methods }) {
+  const list = methods || [];
+  if (list.length === 0) return null;
+  const activeMethods = list.filter(m => m !== 'none');
+  const filled = Math.min(activeMethods.length, 5);
+  const labels = ['No grounding — simulated only', 'Light grounding', 'Moderate grounding', 'Good grounding', 'Strong grounding', 'Strong grounding'];
+  return React.createElement('div', { style: { margin: '12px 0 8px', padding: '10px 12px', background: 'var(--bg-2)', borderRadius: 10, border: '1px solid var(--hair)' } },
+    React.createElement('div', { style: { fontSize: 10, color: 'var(--ink-60)', fontFamily: 'Montserrat', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 6 } }, 'Discovery Grounding'),
+    React.createElement('div', { style: { display: 'flex', gap: 4, marginBottom: 6 } },
+      Array.from({ length: 5 }, (_, i) =>
+        React.createElement('div', {
+          key: i,
+          style: { flex: 1, height: 7, borderRadius: 999, background: i < filled ? 'var(--terra)' : 'var(--hair-2)', transition: 'background 300ms' }
+        })
+      )
+    ),
+    React.createElement('div', { style: { fontSize: 11, color: 'var(--ink-60)' } }, labels[filled])
+  );
+}
+
+function PersonaSkeletonCard({ i }) {
+  return React.createElement('div', { className: 'persona-card', style: { opacity: 1, animation: 'none' } },
+    React.createElement('div', { className: 'persona-head' },
+      React.createElement('div', { className: 'skel', style: { width: 44, height: 44, borderRadius: '50%' } }),
+      React.createElement('div', { style: { flex: 1 } },
+        React.createElement('div', { className: 'skel', style: { width: '60%', height: 13, marginBottom: 6 } }),
+        React.createElement('div', { className: 'skel', style: { width: '40%', height: 10 } })
+      )
+    ),
+    React.createElement('div', { className: 'persona-attrs' },
+      [0, 1, 2, 3].map(k => React.createElement('div', { key: k },
+        React.createElement('div', { className: 'skel', style: { width: 40, height: 9, marginBottom: 4 } }),
+        React.createElement('div', { className: 'skel', style: { width: '80%', height: 12 } })
+      ))
+    )
+  );
+}
+
+function PersonaTab({ synthesis, startError, onStart, onContinue, onReset, intakeContext }) {
   const dots = uM3(() =>
     Array.from({ length: 36 }, () => ({
       sx: (Math.random() - 0.5) * 260 + 'px',
@@ -126,18 +164,34 @@ function PersonaTab({ synthesis, startError, onStart, onContinue, onReset }) {
       phase === 'generating' && React.createElement('div', {
         style: { position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'Montserrat', fontSize: 11, color: 'var(--ink-60)' }
       }, 'synthesizing traits · clustering signals · grounding'),
-      phase === 'done' && personas.length > 0 && React.createElement('div', { className: 'persona-clusters-row' },
-        personas.map((p) =>
-          React.createElement('div', { key: p.id, className: 'persona-cluster-item' },
-            React.createElement('span', { className: 'persona-cluster-emoji' }, '👥'),
-            React.createElement('div', { className: 'persona-cluster-name' }, p.name)
-          )
-        )
+      phase === 'done' && personas.length > 0 && React.createElement('div', { className: 'persona-clusters-beautiful' },
+        personas.map((p, i) => {
+          const clusterColors = ['#C26A43', '#3d7a8c', '#7a8c3d'];
+          const c = clusterColors[i % clusterColors.length];
+          const roleLabel = (p.role || '').split('·')[0].trim();
+          return React.createElement('div', {
+            key: p.id,
+            className: 'persona-cluster-card',
+            style: { '--cluster-color': c, animationDelay: `${i * 120}ms` }
+          },
+            React.createElement('div', { className: 'pcc-accent' }),
+            React.createElement('div', { className: 'pcc-avatar' }, p.name.charAt(0)),
+            React.createElement('div', { className: 'pcc-body' },
+              React.createElement('div', { className: 'pcc-name' }, p.name),
+              roleLabel && React.createElement('div', { className: 'pcc-role' }, roleLabel)
+            ),
+            React.createElement('div', { className: 'pcc-badge' })
+          );
+        })
       ),
       phase === 'done' && React.createElement('div', {
         style: { position: 'absolute', bottom: 10, left: 0, right: 0, textAlign: 'center', fontFamily: 'Montserrat', fontSize: 10.5, color: 'var(--terra)' }
-      }, '✓ 3 persona groups synthesized')
+      }, `✓ ${personas.length} persona group${personas.length === 1 ? '' : 's'} synthesized`)
     ),
+
+    phase === 'idle' && React.createElement(DiscoveryGrounding, {
+      methods: intakeContext && intakeContext.discoveryMethods
+    }),
 
     phase === 'idle' && React.createElement('button', {
       className: 'btn-primary', style: { width: '100%' }, onClick: onStart
@@ -152,8 +206,12 @@ function PersonaTab({ synthesis, startError, onStart, onContinue, onReset }) {
       React.createElement('button', { className: 'btn-secondary', onClick: onReset }, 'Try again')
     ),
 
-    (phase === 'generating' || phase === 'done') && personas.map((p, i) =>
-      React.createElement('div', { key: p.name, className: `persona-card delay-${i + 1}` },
+    phase === 'generating' && [1, 2, 3].map(i =>
+      React.createElement(PersonaSkeletonCard, { key: `skel-${i}`, i })
+    ),
+
+    phase === 'done' && personas.map((p, i) =>
+      React.createElement('div', { key: p.name, className: 'persona-card', style: { animationDelay: `${i * 80}ms` } },
         React.createElement('div', { className: 'persona-head' },
           React.createElement(Avatar, { seed: p.seed }),
           React.createElement('div', null,
@@ -188,12 +246,33 @@ function PersonaTab({ synthesis, startError, onStart, onContinue, onReset }) {
   );
 }
 
-function TestsTab({ selected, setSelected, onContinue }) {
+function getTestConfidence(testId, ctx) {
+  if (!ctx) return 'low';
+  const productStage = ctx.productStage;
+  const discoveryMethods = ctx.discoveryMethods || [];
+  const resultsAudience = ctx.resultsAudience || [];
+  const hasMethods = discoveryMethods.length > 0 && !discoveryMethods.includes('none');
+  // launchFear is now an array of {label, value (0-1), optionValue} from the radar chart
+  const fears = Array.isArray(ctx.launchFear) ? ctx.launchFear : [];
+  const hasFear = (optVal) => fears.some(f => f.optionValue === optVal && f.value > 0.35);
+  if (testId === 'onboarding') return hasFear('signup-dropoff') ? 'high' : productStage ? 'medium' : 'low';
+  if (testId === 'activation') return hasMethods && productStage ? 'high' : productStage || hasMethods ? 'medium' : 'low';
+  if (testId === 'engagement') return hasMethods ? 'high' : productStage ? 'medium' : 'low';
+  if (testId === 'retention') return hasMethods && discoveryMethods.includes('analytics') ? 'high' : hasMethods ? 'medium' : 'low';
+  if (testId === 'accessibility') return hasFear('not-accessible') ? 'high' : 'medium';
+  if (testId === 'compliance') return (resultsAudience || []).includes('investors') ? 'high' : 'medium';
+  return 'medium';
+}
+
+function TestsTab({ selected, setSelected, onContinue, intakeContext }) {
   const toggle = (id) => setSelected(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
   const total = [...UNIVERSAL_TESTS, ...PERSONA_TESTS].filter(t => selected.includes(t.id)).reduce((a, b) => a + b.cost, 0);
 
-  const renderCard = (t) =>
-    React.createElement('button', {
+  const renderCard = (t) => {
+    const conf = getTestConfidence(t.id, intakeContext);
+    const confColor = { high: '#23a66c', medium: '#c98b38', low: '#9b9590' }[conf];
+    const confLabel = { high: 'Strong context', medium: 'Directional', low: 'Add more context' }[conf];
+    return React.createElement('button', {
       key: t.id,
       className: 'test-card' + (selected.includes(t.id) ? ' selected' : ''),
       onClick: () => toggle(t.id)
@@ -201,13 +280,20 @@ function TestsTab({ selected, setSelected, onContinue }) {
       React.createElement('div', { className: 'test-check' }, React.createElement(IconCheck)),
       React.createElement('div', { className: 'test-body' },
         React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 } },
-          React.createElement('div', { className: 'test-name' }, t.name),
+          React.createElement('div', { className: 'test-name' },
+            t.name,
+            React.createElement('span', {
+              title: confLabel,
+              style: { width: 7, height: 7, borderRadius: '50%', background: confColor, display: 'inline-block', marginLeft: 6, verticalAlign: 'middle' }
+            })
+          ),
           React.createElement('span', { className: 'test-cost' }, `${t.cost}k`)
         ),
         React.createElement('div', { className: 'test-desc' }, t.desc),
         React.createElement('div', { className: 'test-q' }, t.q)
       )
     );
+  };
 
   return React.createElement(React.Fragment, null,
     React.createElement('div', { className: 'panel-body' },
@@ -425,7 +511,7 @@ function Studio({ state, dispatch, mockMode, setMockMode,
                   synthesis, simulation, report,
                   onStartSynthesis, onStartSimulation,
                   onResetSynthesis, onResetSimulation,
-                  startErrors }) {
+                  startErrors, intakeContext }) {
   const { step, personaDone, selected, simPhase } = state;
   const tokensUsed = [...UNIVERSAL_TESTS, ...PERSONA_TESTS].filter(t => selected.includes(t.id)).reduce((a, b) => a + b.cost, 0);
   const errs = startErrors || {};
@@ -448,12 +534,14 @@ function Studio({ state, dispatch, mockMode, setMockMode,
       startError: errs.synthesis,
       onStart: onStartSynthesis,
       onReset: onResetSynthesis,
-      onContinue: () => dispatch({ type: 'setStep', step: 2 })
+      onContinue: () => dispatch({ type: 'setStep', step: 2 }),
+      intakeContext
     }),
     step === 2 && React.createElement(TestsTab, {
       selected,
       setSelected: (fn) => dispatch({ type: 'setSelected', selected: typeof fn === 'function' ? fn(selected) : fn }),
-      onContinue: () => dispatch({ type: 'goSim' })
+      onContinue: () => dispatch({ type: 'goSim' }),
+      intakeContext
     }),
     step === 3 && React.createElement(SimulationTab, {
       selected,

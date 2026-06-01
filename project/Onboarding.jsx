@@ -83,10 +83,9 @@ function Onboarding({ files, setFiles, productMode, setProductMode, productUrl, 
                 className: 'url-input',
                 placeholder: 'https://your-prototype.com',
                 value: urlDraft,
-                onChange: (e) => setUrlDraft(e.target.value),
-                onKeyDown: (e) => { if (e.key === 'Enter') setProductUrl(urlDraft); }
-              }),
-              React.createElement('button', { className: 'url-submit', onClick: () => setProductUrl(urlDraft) }, 'Add')
+                onChange: (e) => { setUrlDraft(e.target.value); setProductUrl(e.target.value); },
+                onKeyDown: (e) => { if (e.key === 'Enter') e.target.blur(); }
+              })
             ),
             productUrl && React.createElement('div', { className: 'file-chip' },
               React.createElement(IconLink, null),

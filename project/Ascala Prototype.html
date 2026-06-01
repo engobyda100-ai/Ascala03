@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Dosis:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,6 +18,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
   <script src="config.js"></script>
+  <script src="intakeStore.js"></script>
 
   <script type="text/babel" src="icons.jsx"></script>
   <script type="text/babel" src="api.jsx"></script>
@@ -79,6 +80,17 @@
         window.ASCALA_CONFIG ? window.ASCALA_CONFIG.DEFAULT_MOCK_MODE : true
       );
       const [chatSnapshot, setChatSnapshot] = useState([]);
+      const [intakeContext, setIntakeContext] = useState({
+        problem: null,
+        productStage: null,
+        launchFear: null,
+        resultsAudience: [],
+        targetSegments: [],
+        discoveryMethods: [],
+        testPriority: [],
+      });
+      const setIntakeAnswer = (questionId, value) =>
+        setIntakeContext(prev => ({ ...prev, [questionId]: value }));
       const [synthesisRunId, setSynthesisRunId] = useState(null);
       const [simulationRunId, setSimulationRunId] = useState(null);
       const [reportRunId, setReportRunId] = useState(null);
@@ -87,16 +99,38 @@
       const simulation = window.AscalaAPI.useRun('simulation', simulationRunId);
       const report     = window.AscalaAPI.useRun('report',     reportRunId);
 
+      const buildIntakeSummaryMessages = (ctx) => {
+        const m = [];
+        if (ctx.productStage)
+          m.push({ role: 'user', text: `Product stage: ${ctx.productStage}` });
+        if (ctx.launchFear && ctx.launchFear.length) {
+          const sorted = [...ctx.launchFear].sort((a, b) => b.value - a.value);
+          m.push({ role: 'user', text: `Launch fears (by severity): ${sorted.map(f => `${f.label} (${Math.round(f.value * 100)}%)`).join(', ')}` });
+        }
+        if (ctx.resultsAudience && ctx.resultsAudience.length)
+          m.push({ role: 'user', text: `Results audience: ${ctx.resultsAudience.join(', ')}` });
+        if (ctx.targetSegments && ctx.targetSegments.length)
+          m.push({ role: 'user', text: `Target segments (ranked): ${ctx.targetSegments.join(', ')}` });
+        if (ctx.discoveryMethods && ctx.discoveryMethods.length)
+          m.push({ role: 'user', text: `Customer discovery done: ${ctx.discoveryMethods.join(', ')}` });
+        if (ctx.testPriority && ctx.testPriority.length)
+          m.push({ role: 'user', text: `Test priority (ranked): ${ctx.testPriority.join(', ')}` });
+        return m;
+      };
+
       const onStartSynthesis = async () => {
         setStartErrors(e => ({ ...e, synthesis: null }));
         try {
+          // Intake-only: exclude post-intake conversational turns (m.conv) so
+          // free chat (e.g. pricing questions) doesn't pollute the synthesis transcript.
           const userMsgs = (chatSnapshot || [])
-            .filter(m => m.role === 'user')
+            .filter(m => m.role === 'user' && !m.conv)
             .map(m => ({ role: 'user', text: m.text }));
+          const transcript = [...userMsgs, ...buildIntakeSummaryMessages(intakeContext)];
           const fileObjs = (files || []).map(f => f.file).filter(Boolean);
           const id = await window.AscalaAPI.startSynthesis({
             files: fileObjs,
-            chatTranscript: userMsgs,
+            chatTranscript: transcript,
             productUrl,
             mock: mockMode,
           });
@@ -194,7 +228,22 @@
       }, []);
 
       const [chatMessageSent, setChatMessageSent] = useState(false);
-      const isStudioUnlocked = chatMessageSent || files.length > 0;
+      const [intakeComplete, setIntakeComplete] = useState(false);
+      const isStudioUnlocked = intakeComplete;
+
+      // Mirror App's intake state into the centralized store (intakeStore.js).
+      // App is the single writer; other modules read via window.AscalaIntake.
+      // The structured object is: { completed, sessionId, timestamp, questions, responses }.
+      useEffect(() => {
+        if (!window.AscalaIntake) return;
+        const cur = window.AscalaIntake.get();
+        window.AscalaIntake.set({
+          questions: window.ASCALA_INTAKE_QUESTIONS || {},
+          responses: intakeContext,
+          completed: intakeComplete,
+          timestamp: cur.timestamp || (intakeComplete ? new Date().toISOString() : null),
+        });
+      }, [intakeContext, intakeComplete]);
 
       const toggleTheme = () => { setDark(d => !d); setTweak('theme', dark ? 'light' : 'dark'); };
 
@@ -219,7 +268,6 @@
             productUrl, screenshots, videos, productMode,
             fileCount: files.length,
             setFiles,
-            onChangePrototype: () => setOnboarded(false)
           }),
           isNarrow && React.createElement('div', { className: 'mobile-tabs' },
             [
@@ -242,7 +290,10 @@
               React.createElement(Chat, {
                 onNudgePersona: () => {},
                 onMessageSent: () => setChatMessageSent(true),
-                onMessagesChange: setChatSnapshot
+                onMessagesChange: setChatSnapshot,
+                onIntakeAnswer: setIntakeAnswer,
+                onAllAnswered: () => setIntakeComplete(true),
+                mockMode,
               })
             ),
             !isNarrow && React.createElement('div', { className: 'panel-divider', style: { cursor: 'default', pointerEvents: 'none' } }),
@@ -253,14 +304,15 @@
                 synthesis, simulation, report,
                 onStartSynthesis, onStartSimulation,
                 onResetSynthesis, onResetSimulation,
-                startErrors
+                startErrors,
+                intakeContext
               }),
               !isStudioUnlocked && React.createElement('div', { className: 'panel-gate-overlay' },
                 React.createElement('svg', { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round', style: { color: 'var(--ink-30)' } },
                   React.createElement('rect', { x: 3, y: 11, width: 18, height: 11, rx: 2, ry: 2 }),
                   React.createElement('path', { d: 'M7 11V7a5 5 0 0 1 10 0v4' })
                 ),
-                React.createElement('div', { className: 'panel-gate-label' }, 'Send a message to unlock')
+                React.createElement('div', { className: 'panel-gate-label' }, 'Complete the questions to unlock')
               )
             )
           )

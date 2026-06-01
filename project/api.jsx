@@ -50,6 +50,21 @@
     return rawFetch(`/api/${kind}/${runId}`, { method: 'GET' });
   }
 
+  // Post-intake conversation. `system` carries the intake summary + app
+  // instructions; `messages` is the conversational history as
+  // [{role:'user'|'assistant', content}]. Resolves to the assistant's reply.
+  function chat({ system, messages, mock }) {
+    return rawFetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: system || '',
+        messages: messages || [],
+        mock: !!mock,
+      }),
+    }).then((r) => r.reply);
+  }
+
   // React hook: poll a run until terminal. runId == null → status: 'idle'.
   function useRun(kind, runId) {
     const [state, setState] = React.useState({ status: runId ? 'running' : 'idle' });
@@ -83,5 +98,5 @@
     return state;
   }
 
-  window.AscalaAPI = { startSynthesis, startSimulation, startReport, poll, useRun };
+  window.AscalaAPI = { startSynthesis, startSimulation, startReport, poll, useRun, chat };
 })();
